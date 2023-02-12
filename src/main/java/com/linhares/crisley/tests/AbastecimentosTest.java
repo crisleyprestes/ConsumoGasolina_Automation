@@ -26,4 +26,11 @@ public class AbastecimentosTest extends BaseTest {
                 "foi adicionado com sucesso."));
         Assert.assertTrue(abastecimentosPage.isAbastecimentoAdded("40", "40", "5,59"));
     }
+
+    @Test
+    public void searchAbastecimento(){
+        homePage.clickAbastecimentos();
+        abastecimentosPage.search("10");
+        Assert.assertTrue(abastecimentosPage.isAbastecimentoExist());
+    }
 }

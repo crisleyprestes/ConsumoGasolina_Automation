@@ -27,6 +27,10 @@ public class AbastecimentosPage extends BasePage {
         inputValue(By.cssSelector("input[name='value']"), value);
     }
 
+    public boolean isAbastecimentoExist(){
+        return elementExists(By.cssSelector("tr[class='row1']"));
+    }
+
     public boolean isSuccessMessage(String startMessage, String finishMessage){
         waitVisibilityElement(By.cssSelector("div[class*='success-toast']"));
         String message = getText(By.cssSelector("div[class*='success-toast']"));
@@ -69,5 +73,10 @@ public class AbastecimentosPage extends BasePage {
         click(By.xpath("//div[contains(text(),'"+hour+"')]"));
         waitVisibilityElement(By.xpath("//div[contains(text(), '"+minute+"')]"));
         click(By.xpath("//div[contains(text(), '"+minute+"')]"));
+    }
+
+    public void search(String id){
+        inputValue(By.cssSelector("input[id='icon_prefix']"), id);
+        click(By.cssSelector("button[class='search-cta']"));
     }
 }
