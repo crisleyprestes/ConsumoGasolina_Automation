@@ -11,11 +11,9 @@ public class AbastecimentosTest extends BaseTest {
 
     private AbastecimentosPage abastecimentosPage = new AbastecimentosPage();
     private HomePage homePage = new HomePage();
-    private LoginPage loginPage = new LoginPage();
 
     @Test
     public void createNewAbastecimento(){
-        loginPage.login("admin", "123456");
         homePage.clickAbastecimentos();
         abastecimentosPage.clickAddAbastecimentos();
         abastecimentosPage.inputKmSupply("40");

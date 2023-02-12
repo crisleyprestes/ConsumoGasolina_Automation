@@ -1,7 +1,6 @@
 package com.linhares.crisley;
 
 import com.linhares.crisley.pages.LoginPage;
-import com.linhares.crisley.utils.SleepTime;
 import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
@@ -12,20 +11,25 @@ import org.openqa.selenium.TakesScreenshot;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.SocketException;
+import java.net.UnknownHostException;
 
 import static com.linhares.crisley.DriverFactory.getDriver;
 import static com.linhares.crisley.DriverFactory.killDriver;
 
 public class BaseTest {
 
+    private LoginPage loginPage = new LoginPage();
     @Rule
     public TestName testName = new TestName();
 
     @Before
     public void init(){
-        getDriver().get("http://192.168.0.218:8000/");
-        getDriver().manage().timeouts().implicitlyWait(SleepTime.TEN_SEC, TimeUnit.SECONDS);
+        String ip = getIPAddress();
+        getDriver().get("http://" + ip + ":8000/");
+        loginPage.login("admin", "123456");
     }
 
     @After
@@ -37,5 +41,18 @@ public class BaseTest {
         if(Properties.CLOSE_BROWSER){
             killDriver();
         }
+    }
+
+    public String getIPAddress() {
+        String ip;
+        try (final DatagramSocket socket = new DatagramSocket()) {
+            socket.connect(InetAddress.getByName("8.8.8.8"), 10002);
+            ip = socket.getLocalAddress().getHostAddress();
+        } catch (SocketException e) {
+            throw new RuntimeException(e);
+        } catch (UnknownHostException e) {
+            throw new RuntimeException(e);
+        }
+        return ip;
     }
 }
