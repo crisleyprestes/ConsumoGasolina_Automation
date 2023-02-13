@@ -12,7 +12,6 @@ public class Properties {
     }
 
     public enum ExecutionType{
-        LOCAL,
         GRID
     }
 }

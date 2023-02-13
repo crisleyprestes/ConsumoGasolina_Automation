@@ -1,13 +1,11 @@
 package com.linhares.crisley;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-import java.net.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class DriverFactory {
 
@@ -27,18 +25,6 @@ public class DriverFactory {
 
     public static WebDriver initDriver(){
         WebDriver driver = null;
-        if(Properties.EXECUTION_TYPE == Properties.ExecutionType.LOCAL){
-            switch (Properties.BROWSER){
-                case FIREFOX:
-                    WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
-                    break;
-                case CHROME:
-                    WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
-                    break;
-            }
-        }
         if(Properties.EXECUTION_TYPE == Properties.ExecutionType.GRID) {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             switch (Properties.BROWSER) {
