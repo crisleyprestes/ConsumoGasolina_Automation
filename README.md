@@ -18,9 +18,3 @@
 - Após a inicialização dos containers ser finalizada, execute o comando abaixo para confirmar que os serviços estão funcionando corretamente:
 <pre>docker ps</pre>
 - Execute a automação usando o **_IntelliJ Idea_**.
-
-#### Notas
-
-- No arquivo **_docker-compose.yml_**, foi inserido os seguintes containers/comandos para inicializar o **_Selenium_**:
-<pre>docker pull selenium/standalone-chrome</pre>
-<pre>docker run -d -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome</pre>
