@@ -8,9 +8,10 @@
 
 #### Instruções de Exceução
 
-- Baixe o arquivo no link: https://cutt.ly/x0HJhDD
-- Decompacte o arquivo e acesse o diretório gerado.
-- Renomeie o arquivo **_docker-compose-prova.yml_** para **_docker-compose.yml_**.
+- Clone o repositório:
+<pre>https://github.com/crisleyprestes/ConsumoGasolina_Automation.git</pre>
+- Acesse o diretório do repositório.
+- Decompacte o arquivo **_prova.zip_**.
 - Pelo terminal ou CMD, acesse o diretório onde está o arquivo **_docker-compose.yml_** e execute o comando:
 <pre>docker-compose up -d</pre>
 - Aguarde os containers serem baixados, instalados e configurados.
