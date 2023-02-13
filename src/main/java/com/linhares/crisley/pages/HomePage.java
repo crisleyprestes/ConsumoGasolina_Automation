@@ -9,6 +9,10 @@ public class HomePage extends BasePage {
         click(By.xpath("//*[.='Abastecimentos']"));
     }
 
+    public void clickUsuarios(){
+        click(By.xpath("//*[.='Usuários']"));
+    }
+
     public boolean isLoggedIn(){
         waitVisibilityElement(By.id("site-name"));
         return true;
