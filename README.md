@@ -4,7 +4,7 @@
 
 - Necessário ter o **_Docker_** instalado localmente.
 - Esteja com o serviço do **_Docker_** inicializado.
-- A automação foi desenvolvida no **_IntelliJ_ Idea_** usando **_Selenium WebDriver Java_**, **_JUnit_** e **_Maven_**.
+- A automação foi desenvolvida no **_IntelliJ Idea_** usando **_Selenium WebDriver Java_**, **_JUnit_** e **_Maven_**.
 
 #### Instruções de Exceução
 
