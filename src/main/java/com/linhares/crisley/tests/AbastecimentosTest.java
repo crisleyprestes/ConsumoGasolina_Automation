@@ -3,7 +3,6 @@ package com.linhares.crisley.tests;
 import com.linhares.crisley.BaseTest;
 import com.linhares.crisley.pages.AbastecimentosPage;
 import com.linhares.crisley.pages.HomePage;
-import com.linhares.crisley.pages.LoginPage;
 import org.junit.Assert;
 import org.junit.Test;
 

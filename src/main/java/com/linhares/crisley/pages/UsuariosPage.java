@@ -3,8 +3,11 @@ package com.linhares.crisley.pages;
 import com.linhares.crisley.BasePage;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
-import java.util.UUID;
+import java.util.List;
+
+import static com.linhares.crisley.DriverFactory.getDriver;
 
 public class UsuariosPage extends BasePage {
 
@@ -33,6 +36,22 @@ public class UsuariosPage extends BasePage {
 
     public String getSuccessMessage(){
         return getText(By.cssSelector("div[class*='success-toast']"));
+    }
+
+    public boolean isSearch(String username){
+        List<WebElement> usernames = getDriver().findElements(By.cssSelector("th[class='field-username']"));
+
+        for(WebElement user : usernames){
+            if(user.getText().equals(username)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void searchUser(String username){
+        inputValue(By.id("icon_prefix"), username);
+        click(By.cssSelector("button[class*='search']"));
     }
 
     public void setConfirmPassword(String password){

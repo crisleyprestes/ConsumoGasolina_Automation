@@ -24,4 +24,11 @@ public class UsuariosTest extends BaseTest {
         Assert.assertEquals(successMessage, usuariosPage.getSuccessMessage());
         Assert.assertEquals(menuPath, usuariosPage.getMenuPath());
     }
+
+    @Test
+    public void searchUser(){
+        homePage.clickUsuarios();
+        usuariosPage.searchUser("admin");
+        Assert.assertTrue(usuariosPage.isSearch("admin"));
+    }
 }
